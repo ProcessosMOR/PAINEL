@@ -4,7 +4,7 @@ import pyodbc
 import time
 from streamlit_autorefresh import st_autorefresh
 
-st_autorefresh(interval=10000, key="refresh", limit=None)
+st_autorefresh(interval=40000, key="refresh", limit=None)
 
 # Configuração da conexão
 server = r"VMSSQL01\INSTANCIA"
@@ -58,7 +58,7 @@ st.set_page_config(page_title="Alertas de Máquinas", layout="wide")
 inicio = time.time()
 
 # Cache de 40s com entrada do filtro
-@st.cache_data(ttl=10)
+@st.cache_data(ttl=40)
 def buscar_dados_filtrados():
     return buscar_alertas()
 
