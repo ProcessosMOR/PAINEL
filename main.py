@@ -4,12 +4,16 @@ import pyodbc
 import time
 from streamlit_autorefresh import st_autorefresh
 
+st_autorefresh(interval=10000, key="refresh", limit=None)
+
 # Configuração da conexão
 server = r"VMSSQL01\INSTANCIA"
 database = "INJET"
 username = "consulta_injet"
 password = "1nj&t_M0R"
 driver = "{SQL Server}"
+
+
 
 # Conectar ao banco
 def conectar_sql():
@@ -96,7 +100,7 @@ with col2:
             st.warning(f"Máquina {row['cdmaquina']} está com **parada não informada** há {row['TmpUltParada']}.")
 
 
-st_autorefresh(interval=10000, key="auto_refresh")
+#st_autorefresh(interval=10000, key="auto_refresh")
 
 
 
